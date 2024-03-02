@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
