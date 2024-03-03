@@ -17,10 +17,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Dev Overflow",
-  description: "A Community for developers to ask questions and get answers.",
+  title: "Where is my Pet",
+  description: "A Community for our lovely pets go home.",
   icons: {
-    icon: "/assests/images/site-logo.svg",
+    icon: "assets/images/peticon.png",
   },
 };
 
