@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -8,47 +8,29 @@ import Box from "@mui/material/Box";
 import Autocomplete from "@mui/material/Autocomplete";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import IconButton from "@mui/material/IconButton";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+
+const options = ["1KM", "2KM", "3KM", "4KM", "5KM+"];
+const itemData = [
+  {
+    img: "assets/images/cat01.jpeg",
+    title: "Cat",
+  },
+  {
+    img: "assets/images/dog02.jpeg",
+    title: "Dog",
+  },
+];
 
 const missingPetPage = () => {
-  const options = ["1KM", "2KM", "3KM", "4KM", "5KM+"];
-  const itemData = [
-    {
-      img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      title: "Breakfast",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      title: "Burger",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-      title: "Camera",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-      title: "Coffee",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-      title: "Hats",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-      title: "Honey",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-      title: "Basketball",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-      title: "Fern",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-      title: "Mushrooms",
-    },
-  ];
+  // Initialize state to track active items
+  const [activeItems, setActiveItems] = useState({});
+
+  const handleSelect = (item) => {
+    // Toggle the active state for the clicked item
+    setActiveItems((prev) => ({ ...prev, [item.title]: !prev[item.title] }));
+  };
   return (
     <div>
       <Typography variant="h2" align="center">
@@ -102,31 +84,39 @@ const missingPetPage = () => {
         Description (optional)
       </Typography>
 
-      <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-        {itemData.map((item) => (
-          <ImageListItem key={item.img}>
-            <img
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-              alt={item.title}
-              loading="lazy"
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      <TextField
+        label="Description"
+        multiline
+        rows={4} // Number of rows to display when multiline option is set to true
+        variant="outlined" // Style of the text field
+        fullWidth // Optional: makes the text field take the full width of its parent container
+        placeholder="Enter your description here"
+      />
 
       <Typography required variant="h6">
         Pet
       </Typography>
       <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
         {itemData.map((item) => (
-          <ImageListItem key={item.img}>
+          <ImageListItem key={item.img} sx={{ position: "relative" }}>
             <img
               srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
             />
+            <IconButton
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                color: activeItems[item.title] ? "blue" : "white",
+              }}
+              aria-label={`select ${item.title}`}
+              onClick={() => handleSelect(item)}
+            >
+              <CheckCircleOutlineIcon />
+            </IconButton>
           </ImageListItem>
         ))}
       </ImageList>
