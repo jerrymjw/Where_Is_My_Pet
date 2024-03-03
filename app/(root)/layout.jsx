@@ -4,6 +4,7 @@ import React from "react";
 import Home from "../../components/shared/buttonBar/Home";
 import Profile from "../../components/shared/buttonBar/profile";
 import SendPost from "../../components/shared/buttonBar/SendPost";
+import Divider from "@mui/material/Divider";
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,8 @@ const Layout = ({ children }) => {
           <div className="mx-auto w-full max-w-full">{children}</div>
         </section>
       </div>
+      <Divider />
+
       <Box display="flex" justifyContent="space-around" width="100%">
         <Box flex={1} textAlign="center">
           <Home />
