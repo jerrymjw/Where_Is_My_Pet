@@ -1,5 +1,9 @@
 // import Navbar from "@/components/shared/navbar/Navbar";
+import { Box } from "@mui/material";
 import React from "react";
+import Home from "../../components/shared/buttonBar/Home";
+import Profile from "../../components/shared/buttonBar/profile";
+import SendPost from "../../components/shared/buttonBar/SendPost";
 
 const Layout = ({ children }) => {
   return (
@@ -10,7 +14,17 @@ const Layout = ({ children }) => {
           <div className="mx-auto w-full max-w-full">{children}</div>
         </section>
       </div>
-      Toaster
+      <Box display="flex" justifyContent="space-around" width="100%">
+        <Box flex={1} textAlign="center">
+          <Home />
+        </Box>
+        <Box flex={1} textAlign="center">
+          <Profile />
+        </Box>
+        <Box flex={1} textAlign="center">
+          <SendPost />
+        </Box>
+      </Box>
     </main>
   );
 };
