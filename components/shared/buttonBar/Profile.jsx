@@ -1,7 +1,13 @@
 import React from "react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <div>
+      <AccountCircleIcon />
+      <div>Profile</div>
+    </div>
+  );
 };
 
 export default Profile;

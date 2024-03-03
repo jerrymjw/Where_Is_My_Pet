@@ -1,7 +1,13 @@
 import React from "react";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <HomeIcon />
+      <div>Home</div>
+    </div>
+  );
 };
 
 export default Home;
