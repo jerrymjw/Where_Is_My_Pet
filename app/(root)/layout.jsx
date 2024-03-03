@@ -3,11 +3,11 @@ import React from "react";
 
 const Layout = ({ children }) => {
   return (
-    <main className="background-light850_dark100 relative">
+    <main className="relative background-light850_dark100">
       {/* <Navbar /> */}
       <div className="flex">
-        <section className="flex min-h-screen flex-1 flex-col px-6 pb-6 pt-36 max-md:pb-14 sm:px-14">
-          <div className="mx-auto w-full max-w-full">{children}</div>
+        <section className="flex flex-col flex-1 min-h-screen px-6 pb-6 pt-14 max-md:pb-14 sm:px-14">
+          <div className="w-full max-w-full mx-auto">{children}</div>
         </section>
       </div>
       Toaster
