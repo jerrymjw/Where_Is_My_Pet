@@ -19,10 +19,10 @@ const Layout = ({ children }) => {
           <Home />
         </Box>
         <Box flex={1} textAlign="center">
-          <Profile />
+          <SendPost />
         </Box>
         <Box flex={1} textAlign="center">
-          <SendPost />
+          <Profile />
         </Box>
       </Box>
     </main>
